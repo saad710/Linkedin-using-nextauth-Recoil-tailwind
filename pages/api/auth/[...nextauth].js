@@ -60,6 +60,9 @@ export default NextAuth({
   ],
   secret: process.env.JWT_SECRET,
   adapter: MongoDBAdapter(clientPromise),
+  callbacks: {
+
+  },
   pages: {
     signIn: "/home",
   },

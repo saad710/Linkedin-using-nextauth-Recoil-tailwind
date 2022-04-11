@@ -7,9 +7,11 @@ import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import Head from "next/head";
 import { getProviders, signIn } from "next-auth/react";
+import {useRouter} from "next/router"
 
 function Home({ providers }) {
   console.log(providers)
+  const router = useRouter()
   return (
     <div className="space-y-10 relative">
       <Head>
@@ -50,21 +52,20 @@ function Home({ providers }) {
                   Sign in 
                 </button> */
                 
-                <form >
-                {/* <input type="text" name="email" />
-                <input type="password" name="password"/> */}
+              
+                /* <input type="text" name="email" />
+                <input type="password" name="password"/> */
                 <button 
                    onClick={() => signIn(provider.id, {
                       email: "saad@gmail.com",
                       username: "saad",
                       id: "462347",
-                      callbackUrl: "/" }
+                      callbackUrl: "/"}
                       )}
-                >Submit</button>
+                >Sign in with credentials</button>
 
                 
-             
-            </form>
+       
                }
               </div>
             </div>
