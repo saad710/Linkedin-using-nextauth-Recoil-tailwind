@@ -31,12 +31,41 @@ function Home({ providers }) {
           {Object.values(providers).map((provider) => (
             <div key={provider.name}>
               <div className="pl-4">
-                <button
+               {
+                 provider.name === "Google" &&
+                 <button
                   className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2"
                   onClick={() => signIn(provider.id, { callbackUrl: "/" })}
                 >
-                  Sign in
+                  Sign in 
                 </button>
+               }
+               {
+                 provider.name === "Credentials" &&
+                 
+                 /* <button
+                  className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2"
+                  onClick={() => signIn(provider.id, { callbackUrl: "/" })}
+                >
+                  Sign in 
+                </button> */
+                
+                <form >
+                <input type="text" name="email" />
+                <input type="password" name="password"/>
+                <button type="submit"
+                   onClick={() => signIn(provider.id, {
+                      email: "saad@gmail.com",
+                      username: "saad",
+                      id: "462347",
+                      callbackUrl: "/" }
+                      )}
+                >Submit</button>
+
+                
+             
+            </form>
+               }
               </div>
             </div>
           ))}
