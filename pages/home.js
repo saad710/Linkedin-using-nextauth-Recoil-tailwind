@@ -55,14 +55,20 @@ function Home({ providers }) {
               
                 /* <input type="text" name="email" />
                 <input type="password" name="password"/> */
-                <button 
-                   onClick={() => signIn(provider.id, {
+               <form onSubmit={(e)=>{
+                 e.preventDefault()
+                              signIn(provider.id, {
                       email: "saad@gmail.com",
                       username: "saad",
                       id: "462347",
                       callbackUrl: "/"}
                       )}
+               }>
+               <button 
+                type="submit"
+         
                 >Sign in with credentials</button>
+               </form>
 
                 
        
