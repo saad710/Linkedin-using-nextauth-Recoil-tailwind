@@ -51,9 +51,9 @@ function Home({ providers }) {
                 </button> */
                 
                 <form >
-                <input type="text" name="email" />
-                <input type="password" name="password"/>
-                <button type="submit"
+                {/* <input type="text" name="email" />
+                <input type="password" name="password"/> */}
+                <button 
                    onClick={() => signIn(provider.id, {
                       email: "saad@gmail.com",
                       username: "saad",

@@ -11,6 +11,7 @@ import { Avatar } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
+import { signOut } from "next-auth/react"
 
 const spring = {
   type: "spring",
@@ -60,6 +61,7 @@ function Header() {
         <HeaderLink Icon={NotificationsIcon} text="Notifications" feed />
         <HeaderLink Icon={Avatar} text="Me" feed avatar hidden />
         <HeaderLink Icon={AppsOutlinedIcon} text="Work" feed hidden />
+        <button  onClick={() => signOut({ callbackUrl: "/home" })}>Sign Out</button>
 
         {/* Dark mode toggle */}
         {mounted && (
