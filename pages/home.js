@@ -8,10 +8,49 @@ import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRound
 import Head from "next/head";
 import { getProviders, signIn } from "next-auth/react";
 import {useRouter} from "next/router"
+import { useForm } from "react-hook-form";
 
 function Home({ providers }) {
   console.log(providers)
   const router = useRouter()
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = async (data,provider) => {
+    console.log(provider)
+    console.log(data)
+
+    async function getUserData() {
+      try {
+        let response = await fetch('http://localhost:3000/api/validate/ValidateUser', {
+          method: 'POST',
+          headers: {
+          'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              email: data.email,
+              password: data.password,
+          }),
+    })
+    console.log(response)
+        let user = await response.json();
+        console.log(user)
+        if(response.ok){
+          signIn(provider.id, {
+            email: user.email,
+            username: user.name,
+            id: user.id,
+            callbackUrl: "/" }
+            );
+        }
+      } catch(err) {
+        // catches errors both in fetch and response.json
+        alert(err);
+        console.log(err)
+      }
+    }
+    getUserData();
+  }
+
   return (
     <div className="space-y-10 relative">
       <Head>
@@ -55,7 +94,8 @@ function Home({ providers }) {
               
                 /* <input type="text" name="email" />
                 <input type="password" name="password"/> */
-               <form onSubmit={(e)=>{
+
+               /* <form onSubmit={(e)=>{
                  e.preventDefault()
                               signIn(provider.id, {
                       email: "saad@gmail.com",
@@ -68,6 +108,11 @@ function Home({ providers }) {
                 type="submit"
          
                 >Sign in with credentials</button>
+               </form> */
+               <form onSubmit={ handleSubmit(data => onSubmit(data,provider))}>
+                <input placeholder="email" style={{backgroundColor:"silver",outline:"none",padding:"1vh"}} type="text" name="email" {...register("email")}/>
+                <input placeholder="password" style={{marginLeft:"2vh",backgroundColor:"silver",outline:"none",padding:"1vh"}} type="password" name="password" {...register("password")}/>
+                <button className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2 ml-2" type="submit">Submit</button>
                </form>
 
                 
