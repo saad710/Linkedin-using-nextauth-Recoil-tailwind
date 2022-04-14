@@ -83,7 +83,7 @@ export async function getServerSideProps(context) {
         photoUrl: post.photoUrl,
         username: post.username,
         email: post.email,
-        userImg: post.userImg,
+        // userImg: post.userImg,
         createdAt: post.createdAt,
       })),
     },

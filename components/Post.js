@@ -42,7 +42,7 @@ function Post({ post, modalPost }) {
       } space-y-2 py-2.5 border border-gray-300 dark:border-none`}
     >
       <div className="flex items-center px-2.5 cursor-pointer">
-        <Avatar src={post.userImg} className="!h-10 !w-10 cursor-pointer" />
+        <Avatar  className="!h-10 !w-10 cursor-pointer" />
         <div className="mr-auto ml-2 leading-none">
           <h6 className="font-medium hover:text-blue-500 hover:underline">
             {post.username}
