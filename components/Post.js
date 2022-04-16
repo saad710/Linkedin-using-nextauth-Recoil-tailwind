@@ -12,6 +12,7 @@ import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
 import { modalState, modalTypeState } from "../atoms/modalAtom";
 import TimeAgo from "timeago-react";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 function Post({ post, modalPost }) {
   const { data: session } = useSession();
@@ -77,7 +78,7 @@ function Post({ post, modalPost }) {
       )}
 
       {post.photoUrl && !modalPost && (
-        <img
+        <Image
           src={post.photoUrl}
           alt=""
           className="w-full cursor-pointer"

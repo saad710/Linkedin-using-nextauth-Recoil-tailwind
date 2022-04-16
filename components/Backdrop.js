@@ -9,6 +9,7 @@ const Backdrop = ({ children, onClick }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      {/* {children} */}
       {children}
     </motion.div>
   );

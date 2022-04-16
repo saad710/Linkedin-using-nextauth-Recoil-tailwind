@@ -60,9 +60,9 @@ function Header() {
         <HeaderLink Icon={BusinessCenterIcon} text="Jobs" feed hidden />
         <HeaderLink Icon={ChatIcon} text="Messaging" feed />
         <HeaderLink Icon={NotificationsIcon} text="Notifications" feed />
-        <HeaderLink Icon={Avatar} text="Me" feed avatar hidden />
+        {/* <HeaderLink Icon={Avatar} text="Me" feed  hidden /> */}
         <HeaderLink Icon={AppsOutlinedIcon} text="Work" feed hidden />
-        <button className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2 ml-2" onClick={() => signOut({ callbackUrl: "/home" })}>Sign Out</button>
+       
 
         {/* Dark mode toggle */}
         {mounted && (
@@ -84,6 +84,7 @@ function Header() {
             <span className="absolute right-0.5">🌞</span>
           </div>
         )}
+        <button className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2 ml-2" onClick={() => signOut({ callbackUrl: "/home" })}>Sign Out</button>
       </div>
     </header>
   );
