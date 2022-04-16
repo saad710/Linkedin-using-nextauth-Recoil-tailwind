@@ -11,6 +11,7 @@ import {useRouter} from "next/router"
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import LoginModal from "../components/LoginModal";
+import socialIcon from "../public/youth-icon-png-7.jpg"
 
 function Home({ providers }) {
   console.log(providers)
@@ -27,12 +28,12 @@ function Home({ providers }) {
   return (
     <div className="space-y-10 relative">
       <Head>
-        <title>LinkedIn</title>
+        <title>SocialApp</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className="flex justify-around items-center py-4">
-        <div className="relative w-36 h-10">
-          <Image src="https://rb.gy/vtbzlp" layout="fill" objectFit="contain" />
+        <div className="relative w-36 h-10 flex">
+          <Image src={socialIcon} alt="socialIcon" layout="fill" objectFit="contain" />
         </div>
         <div className="flex items-center sm:divide-x divide-gray-300">
           <div className="hidden sm:flex space-x-8 pr-4">

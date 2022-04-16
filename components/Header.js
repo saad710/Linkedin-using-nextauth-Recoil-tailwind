@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 import { signOut } from "next-auth/react"
+import socialIcon from "../public/youth-icon-png-7.jpg"
 
 const spring = {
   type: "spring",
@@ -35,9 +36,9 @@ function Header() {
         {mounted && (
           <>
             {resolvedTheme === "dark" ? (
-              <Image src="https://rb.gy/bizvqj" width={45} height={45} />
+              <Image src={socialIcon} alt="" width={45} height={45} />
             ) : (
-              <Image src="https://rb.gy/dpmd9s" width={55} height={55} />
+              <Image src={socialIcon} alt="" width={55} height={55} />
             )}
           </>
         )}
@@ -61,7 +62,7 @@ function Header() {
         <HeaderLink Icon={NotificationsIcon} text="Notifications" feed />
         <HeaderLink Icon={Avatar} text="Me" feed avatar hidden />
         <HeaderLink Icon={AppsOutlinedIcon} text="Work" feed hidden />
-        <button  onClick={() => signOut({ callbackUrl: "/home" })}>Sign Out</button>
+        <button className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2 ml-2" onClick={() => signOut({ callbackUrl: "/home" })}>Sign Out</button>
 
         {/* Dark mode toggle */}
         {mounted && (

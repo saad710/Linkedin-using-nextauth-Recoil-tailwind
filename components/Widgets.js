@@ -2,6 +2,7 @@ import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordRounded";
 import Image from "next/image";
 import TimeAgo from "timeago-react";
+import socialMedia from "../public/social-media-header.png"
 
 function Widgets({ articles }) {
   return (
@@ -9,7 +10,7 @@ function Widgets({ articles }) {
       {/* News */}
       <div className="bg-white dark:bg-[#1D2226] py-2.5 rounded-lg space-y-2 w-11/12 overflow-hidden border border-gray-300 dark:border-none">
         <div className="flex items-center justify-between font-bold px-2.5">
-          <h4>LinkedIn News</h4>
+          <h4>Social App News</h4>
           <InfoRoundedIcon className="h-5 w-5" />
         </div>
 
@@ -36,8 +37,10 @@ function Widgets({ articles }) {
       {/* Ads */}
       <div className="bg-white dark:bg-[#1D2226] w-11/12 h-64 px-2.5 rounded-lg sticky top-20 border border-gray-300 dark:border-none">
         <div className="relative w-full h-full">
+          <h4 className="font-semibold"> Thousands Like Comment and Share</h4>
           <Image
-            src="https://rb.gy/kbfeaa"
+            src={socialMedia}
+            alt="socialMedia"
             layout="fill"
             objectFit="contain"
             priority

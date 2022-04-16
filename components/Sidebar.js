@@ -3,6 +3,7 @@ import Image from "next/image";
 import BookmarkOutlinedIcon from "@mui/icons-material/BookmarkOutlined";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import { signOut, useSession } from "next-auth/react";
+import socialIcon from "../public/youth-icon-png-7.jpg"
 
 function Sidebar() {
   const { data: session } = useSession();
@@ -12,7 +13,7 @@ function Sidebar() {
       {/* Top */}
       <div className="bg-white dark:bg-[#1D2226] rounded-lg overflow-hidden relative flex flex-col items-center text-center border border-gray-300 dark:border-none">
         <div className="relative w-full h-14">
-          <Image src="https://rb.gy/i26zak" layout="fill" priority />
+        <Image src={socialIcon} alt="socialIcon" layout="fill" objectFit="contain" />
         </div>
         <Avatar
           onClick={signOut}
