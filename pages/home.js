@@ -9,47 +9,20 @@ import Head from "next/head";
 import { getProviders, signIn } from "next-auth/react";
 import {useRouter} from "next/router"
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import LoginModal from "../components/LoginModal";
 
 function Home({ providers }) {
   console.log(providers)
   const router = useRouter()
-  const { register, handleSubmit } = useForm();
+  
+  const [open,setOpen] = useState(false)
 
-  const onSubmit = async (data,provider) => {
-    console.log(provider)
-    console.log(data)
-
-    async function getUserData() {
-      try {
-        let response = await fetch('http://localhost:3000/api/validate/ValidateUser', {
-          method: 'POST',
-          headers: {
-          'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-              email: data.email,
-              password: data.password,
-          }),
-    })
-    console.log(response)
-        let user = await response.json();
-        console.log(user)
-        if(response.ok){
-          signIn(provider.id, {
-            email: user.email,
-            username: user.name,
-            id: user.id,
-            callbackUrl: "/" }
-            );
-        }
-      } catch(err) {
-        // catches errors both in fetch and response.json
-        alert(err);
-        console.log(err)
-      }
-    }
-    getUserData();
+  const handlePopup = () => {
+    setOpen(true)
   }
+
+
 
   return (
     <div className="space-y-10 relative">
@@ -67,60 +40,10 @@ function Home({ providers }) {
             <HeaderLink Icon={GroupIcon} text="People" />
             <HeaderLink Icon={OndemandVideoSharpIcon} text="Learning" />
             <HeaderLink Icon={BusinessCenterIcon} text="Jobs" />
+            <button onClick={handlePopup} className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2 ml-2" type="submit">Sign In</button>
           </div>
 
-          {Object.values(providers).map((provider) => (
-            <div key={provider.name}>
-              <div className="pl-4">
-               {
-                 provider.name === "Google" &&
-                 <button
-                  className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2"
-                  onClick={() => signIn(provider.id, { callbackUrl: "/" })}
-                >
-                  Sign in 
-                </button>
-               }
-               {
-                 provider.name === "Credentials" &&
-                 
-                 /* <button
-                  className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2"
-                  onClick={() => signIn(provider.id, { callbackUrl: "/" })}
-                >
-                  Sign in 
-                </button> */
-                
-              
-                /* <input type="text" name="email" />
-                <input type="password" name="password"/> */
-
-               /* <form onSubmit={(e)=>{
-                 e.preventDefault()
-                              signIn(provider.id, {
-                      email: "saad@gmail.com",
-                      username: "saad",
-                      id: "462347",
-                      callbackUrl: "/"}
-                      )}
-               }>
-               <button 
-                type="submit"
          
-                >Sign in with credentials</button>
-               </form> */
-               <form onSubmit={ handleSubmit(data => onSubmit(data,provider))}>
-                <input placeholder="email" style={{backgroundColor:"silver",outline:"none",padding:"1vh"}} type="text" name="email" {...register("email")}/>
-                <input placeholder="password" style={{marginLeft:"2vh",backgroundColor:"silver",outline:"none",padding:"1vh"}} type="password" name="password" {...register("password")}/>
-                <button className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2 ml-2" type="submit">Submit</button>
-               </form>
-
-                
-       
-               }
-              </div>
-            </div>
-          ))}
         </div>
       </header>
 
@@ -148,6 +71,7 @@ function Home({ providers }) {
         <div className="relative xl:absolute w-80 h-80 xl:w-[650px] xl:h-[650px] top-14 right-5">
           <Image src="https://rb.gy/vkzpzt" layout="fill" priority />
         </div>
+        <LoginModal open={open} setOpen={setOpen} providers={providers}/>
       </main>
     </div>
   );

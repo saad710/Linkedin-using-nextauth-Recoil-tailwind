@@ -11,6 +11,7 @@ export default async function handler(req, res) {
 
   if (method === "POST") {
     try {
+       if(username && email && password){
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
         const newUser = {
@@ -23,6 +24,7 @@ export default async function handler(req, res) {
         .insertOne({ ...newUser });
     //   res.status(201).json(newUser);
     res.status(201).json({status:"successfully signed up"});
+       }
     } catch (error) {
       res.status(500).json(error);
     }
@@ -32,3 +34,5 @@ export default async function handler(req, res) {
     }
 
 };
+
+
