@@ -21,6 +21,10 @@
     @apply text-[13px] font-medium text-blue-500 hover:underline cursor-pointer px-2.5;
   }
 
+  .sid {
+    @apply text-[13px] font-medium text-blue-500 hover:underline cursor-pointer px-2.5;
+  }
+
   .inputButton {
     @apply flex items-center space-x-2 font-medium cursor-pointer text-sm;
   }

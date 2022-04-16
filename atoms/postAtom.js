@@ -14,3 +14,9 @@ export const useSSRPostsState = atom({
   key: "useSSRPostsState",
   default: true,
 });
+
+// export const useSSRPostsState = atom({
+//   key: "useSSRPostsState",
+//   default: true,
+// });
+
