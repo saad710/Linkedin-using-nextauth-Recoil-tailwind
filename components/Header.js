@@ -30,7 +30,7 @@ function Header() {
   console.log("Current theme is", theme);
 
   return (
-    <header className="sticky top-0 z-40 bg-white dark:bg-[#1D2226] flex items-center justify-around py-1.5 px-3 focus-within:shadow-lg">
+    <header className="sticky top-0 z-40 bg-indigo-100 dark:bg-[#1D2226] flex items-center justify-around py-1.5 px-3 focus-within:shadow-lg">
       {/* Left */}
       <div className="flex items-center space-x-2 w-full max-w-xs">
         {mounted && (

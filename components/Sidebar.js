@@ -9,9 +9,9 @@ function Sidebar() {
   const { data: session } = useSession();
 
   return (
-    <div className="space-y-2 min-w-max max-w-lg">
+    <div className="space-y-2 min-w-max max-w-lg  ">
       {/* Top */}
-      <div className="bg-white dark:bg-[#1D2226] rounded-lg overflow-hidden relative flex flex-col items-center text-center border border-gray-300 dark:border-none">
+      <div className="bg-indigo-100  dark:bg-[#1D2226] rounded-lg overflow-hidden relative flex flex-col items-center text-center border border-gray-300 dark:border-none">
         <div className="relative w-full h-14">
         <Image src={socialIcon} alt="socialIcon" layout="fill" objectFit="contain" />
         </div>
@@ -58,7 +58,7 @@ function Sidebar() {
         </div>
       </div>
       {/* Bottom */}
-      <div className="hidden md:flex bg-white dark:bg-[#1D2226] text-black/70 dark:text-white/75 rounded-lg overflow-hidden flex-col space-y-2 pt-2.5 sticky top-20 border border-gray-300 dark:border-none">
+      <div className="hidden md:flex bg-indigo-100 dark:bg-[#1D2226] text-black/70 dark:text-white/75 rounded-lg overflow-hidden flex-col space-y-2 pt-2.5 sticky top-20 border border-gray-300 dark:border-none">
         <p className="sidebarLink">Groups</p>
         <div className="flex items-center justify-between">
           <p className="sidebarLink">Events</p>

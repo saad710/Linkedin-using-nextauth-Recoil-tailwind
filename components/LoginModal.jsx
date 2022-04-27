@@ -100,7 +100,7 @@ const LoginModal = (props) => {
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
-        className="fixed inset-0 overflow-hidden"
+        className="fixed inset-0 overflow-hidden "
         onClose={setOpen}
       >
         <div className="absolute inset-0 overflow-hidden">
@@ -127,7 +127,7 @@ const LoginModal = (props) => {
               leaveTo="translate-x-full"
             >
               <div className="pointer-events-auto w-screen max-w-md">
-                <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl bg-indigo-100">
                   <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                     <div className="flex items-start justify-between">
                       <Dialog.Title className="text-lg font-medium text-gray-900">
@@ -208,7 +208,7 @@ const LoginModal = (props) => {
                                   </div>
 
                                   <form
-                                    className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+                                    className="bg-white rounded px-8 pt-6 pb-8 mb-4 bg-indigo-100"
                                     onSubmit={handleSubmit((data) =>
                                       onSubmit(data, provider)
                                     )}

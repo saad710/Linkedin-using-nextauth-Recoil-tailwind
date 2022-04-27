@@ -15,7 +15,7 @@ function Input() {
   const [modalType, setModalType] = useRecoilState(modalTypeState);
 
   return (
-    <div className="bg-white dark:bg-[#1D2226] rounded-lg p-3 space-y-3 border border-gray-300 dark:border-none">
+    <div className="bg-indigo-100  dark:bg-[#1D2226] rounded-lg p-3 space-y-3 border border-gray-300 dark:border-none">
       <div className="flex items-center space-x-2">
         <Avatar
           src={session?.user?.image}

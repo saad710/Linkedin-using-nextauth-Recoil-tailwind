@@ -37,10 +37,10 @@ function Home({ providers }) {
         </div>
         <div className="flex items-center sm:divide-x divide-gray-300">
           <div className="hidden sm:flex space-x-8 pr-4">
-            <HeaderLink Icon={ExploreIcon} text="Discover" />
+            <HeaderLink Icon={ExploreIcon} text="Explore" />
             <HeaderLink Icon={GroupIcon} text="People" />
-            <HeaderLink Icon={OndemandVideoSharpIcon} text="Learning" />
-            <HeaderLink Icon={BusinessCenterIcon} text="Jobs" />
+            <HeaderLink Icon={OndemandVideoSharpIcon} text="Videos" />
+            <HeaderLink Icon={BusinessCenterIcon} text="Connect" />
             <button onClick={handlePopup} className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2 ml-2" type="submit">Sign In</button>
           </div>
 
@@ -54,16 +54,20 @@ function Home({ providers }) {
             Welcome to your professional community
           </h1>
           <div className="space-y-4">
-            <div className="intent">
+            <div className="intent bg-indigo-100">
               <h2 className="text-xl">Search for a job</h2>
               <ArrowForwardIosRoundedIcon className="text-gray-700" />
             </div>
-            <div className="intent">
+            <div className="intent bg-indigo-100">
               <h2 className="text-xl">Find a person you know</h2>
               <ArrowForwardIosRoundedIcon className="text-gray-700" />
             </div>
-            <div className="intent">
+            <div className="intent bg-indigo-100">
               <h2 className="text-xl">Learn a new skill</h2>
+              <ArrowForwardIosRoundedIcon className="text-gray-700" />
+            </div>
+            <div className="intent bg-indigo-100">
+              <h2 className="text-xl">Share your fruitful ideas</h2>
               <ArrowForwardIosRoundedIcon className="text-gray-700" />
             </div>
           </div>

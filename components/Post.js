@@ -38,7 +38,7 @@ function Post({ post, modalPost }) {
 
   return (
     <div
-      className={`bg-white dark:bg-[#1D2226] ${
+      className={`bg-indigo-100  dark:bg-[#1D2226] ${
         modalPost ? "rounded-r-lg" : "rounded-lg"
       } space-y-2 py-2.5 border border-gray-300 dark:border-none`}
     >
